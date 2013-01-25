@@ -1,5 +1,3 @@
-#!/bin/sh
-
 ################################################################################
 #      This file is part of OpenELEC - http://www.openelec.tv
 #      Copyright (C) 2009-2012 Stephan Raue (stephan@openelec.tv)
@@ -20,35 +18,18 @@
 #  http://www.gnu.org/copyleft/gpl.html
 ################################################################################
 
-. config/options $1
-
-if [ "$DEBUG" = yes ]; then
-  DEBUG_CONFIG="--enable-debug"
-else
-  DEBUG_CONFIG="--disable-debug"
-fi
-
-export ac_cv_path_LIBUSB_CONFIG=
-export ac_cv_func_forkpty=no
-export ac_cv_lib_util_forkpty=no
-export MAKEFLAGS=-j1
-
-cd $PKG_BUILD
-mkdir -p m4 && do_autoreconf
-./configure --host=$TARGET_NAME \
-            --build=$HOST_NAME \
-            --prefix=/usr \
-            --sysconfdir=/etc \
-            --enable-shared \
-            --disable-static \
-            --enable-sandboxed \
-            --with-gnu-ld \
-            --without-x \
-            --with-driver=userspace \
-            --with-driver=xbox \
-            --with-driver=usb_irtoy \
-            --with-syslog=LOG_DAEMON \
-            --with-kerneldir=$(kernel_path) \
-            $DEBUG_CONFIG
-
-make
+PKG_NAME="dvb-af9035"
+PKG_VERSION="42"
+PKG_REV="1"
+PKG_ARCH="any"
+PKG_LICENSE="GPL"
+PKG_SITE="https://github.com/xgazza/DVB-AF9035_kernel-3.2.0/"
+PKG_URL="https://github.com/xgazza/DVB-AF9035_kernel-3.2.0/tarball/master"
+PKG_DEPENDS=""
+PKG_BUILD_DEPENDS="toolchain linux"
+PKG_PRIORITY="optional"
+PKG_SECTION="driver"
+PKG_SHORTDESC="Linux Terratec tuner drivers"
+PKG_LONGDESC="Linux Terratec tuner drivers"
+PKG_IS_ADDON="no"
+PKG_AUTORECONF="no"

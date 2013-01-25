@@ -25,8 +25,8 @@
 VER=`ls $BUILD/linux*/modules/lib/modules`
 
 # LIRC kernel driver
-mkdir -p $INSTALL/lib/modules/$VER/lirc
-  cp $PKG_BUILD/drivers/lirc_*/*.ko $INSTALL/lib/modules/$VER/lirc
+#mkdir -p $INSTALL/lib/modules/$VER/lirc
+#  cp $PKG_BUILD/drivers/lirc_*/*.ko $INSTALL/lib/modules/$VER/lirc
 
 mkdir -p $INSTALL/usr/sbin
   cp $PKG_BUILD/daemons/lircd $INSTALL/usr/sbin
